@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using FreshMvvm;
+using TemplateCCG.Navigation;
+using TemplateCCG.PageModels;
 using Xamarin.Forms;
 
 namespace TemplateCCG
@@ -11,9 +13,13 @@ namespace TemplateCCG
 	{
 		public App ()
 		{
-			InitializeComponent();
 
-			MainPage = new TemplateCCG.MainPage();
+
+			// The root page of your application
+			MainPage = new CustomNavigation();
+
+
+			
 		}
 
 		protected override void OnStart ()

@@ -50,5 +50,6 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>TemplateCCG</string>
+ 
 </dict>
 </plist>

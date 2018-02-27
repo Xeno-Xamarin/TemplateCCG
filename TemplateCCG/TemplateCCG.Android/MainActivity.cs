@@ -19,8 +19,10 @@ namespace TemplateCCG.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+	        
+			global::Xamarin.Forms.Forms.Init(this, bundle);
+	       // FormsPlugin.Iconize.Droid.IconControls.Init(Resource.Id.toolbar, Resource.Id.tabMode);
+			LoadApplication(new App());
         }
     }
 }
