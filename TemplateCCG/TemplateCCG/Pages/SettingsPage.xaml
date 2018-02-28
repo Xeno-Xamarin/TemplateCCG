@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="TemplateCCG.Pages.SettingsPage">
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="{Binding UnicornText}" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Button Text="Show me!" Command="{Binding ShowUnicornCommand}"></Button>
+        <Button Text="Show me!" Command="{Binding LoadAnotherCommand}"></Button>
+        <Label Text="{Binding ImageSourceText}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        <forms:CachedImage Source="{Binding RandomSource}" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Button Text="Translucide StatusBar" Command="{Binding MakeTranslucideBarCommand}"></Button>
     </StackLayout>
 </ContentPage>

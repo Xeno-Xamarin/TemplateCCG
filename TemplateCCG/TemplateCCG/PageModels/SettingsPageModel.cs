@@ -1,30 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using FreshMvvm;
+using PropertyChanged;
 using TemplateCCG.Core;
+using TemplateCCG.Helpers;
 using Xamarin.Forms;
 
 namespace TemplateCCG.PageModels
 {
+	[AddINotifyPropertyChangedInterface]
 	public class SettingsPageModel : PageModelBase
 	{
-		public string UnicornText
+		private bool isStatusBarTranslu = false;
+		public SettingsPageModel()
 		{
-			get
+			LoadAnotherCommand = new Command((arg) =>
 			{
-				return "unicorn!";
-			}
+				Reload();
+			});
+			MakeTranslucideBarCommand = new Command((arg) =>
+			{
+				StatusBarHelper.Instance.MakeTranslucentStatusBar(!isStatusBarTranslu);
+				isStatusBarTranslu = !isStatusBarTranslu;
+			});
 		}
 
-		public Command ShowUnicornCommand
+		public ICommand LoadAnotherCommand { get; set; }
+		public ICommand MakeTranslucideBarCommand { get; set; }
+		private string _randomSource = $"https://cdn.discordapp.com/attachments/290124294145703936/418369570395521024/unknown.png";
+		public string ImageSourceText { get; set; }
+		
+
+		public void Reload()
 		{
-			get
-			{
-				return new Command(() => {
-					CoreMethods.PushPageModel<UnicornPageModel>("https://drawinglics.com/view/1697018/efficient-image-resizing-with-imagemagick-smashing-magazine-two-images-of-an-old-woman-the-second-full-of-image-rendering-artifacts.jpg", true);
-				});
-			}
+			RandomSource = "https://static.esea.net/global/images/teams/154810.1510586034.png";
 		}
+
+		public string RandomSource
+		{
+			get { return _randomSource; }
+			set { _randomSource = value; }
+		}
+
+
+
+		
+
 	}
 }
